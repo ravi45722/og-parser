@@ -23,20 +23,17 @@ exports.opParser = function (req, res, next){
 			keys.forEach(function (key) {
 
 				if (meta[key].attribs && meta[key].attribs.property && meta[key].attribs.content) {
-
+					//Parsing the OG parameters
 					var property = meta[key].attribs.property,
 						content = meta[key].attribs.content
 					if (content.length !== 0) {
-
+						//Instead of spliting with ":", "if" performes better 
 						if (property === 'og:title')
 							ogData.title = content
-
 						if (property === 'og:description')
 							ogData.description = content.substring(0, 69)
-						
 						if (property === 'og:url')
 							ogData.url = content
-
 						if (property === 'og:image') {
 							if (!ogData.images)
 								ogData.images = [content]
@@ -45,19 +42,14 @@ exports.opParser = function (req, res, next){
 						}
 					}
 				} else if (meta[key].attribs && meta[key].attribs.name && meta[key].attribs.content ) {
-
-				  //if og parameters aren't set
+					  //if og parameters aren't set
 					var name = meta[key].attribs.name,
 						content = meta[key].attribs.content
-
 					if (content.length !== 0) {
-
 						if (name === 'title')
 							metaData.title = content
-
 						if (name === 'description')
 							metaData.description = content.substring(0, 69)
-						
 						if (name === 'image') {
 							if (!metaData.images)
 								metaData.images = [content]
