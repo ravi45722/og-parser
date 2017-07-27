@@ -1,0 +1,26 @@
+{
+  "name": "OG-Parser",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --timeout 15000",
+    "start": "node app.js"
+  },
+  "author": "Ravi Sankar",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chai": "^4.1.0",
+    "chai-http": "^3.0.0",
+    "cheerio": "^1.0.0-rc.2",
+    "config": "^1.26.1",
+    "cors": "^2.8.4",
+    "datetimejs": "^0.3.4",
+    "express": "^4.15.3",
+    "request": "^2.81.0",
+    "winston": "^2.3.1",
+    "winston-daily-rotate-file": "^1.4.6"
+  }
+}

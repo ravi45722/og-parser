@@ -1,0 +1,9 @@
+{
+	"logs" : {
+		"fileName" : "./logs/OG-parser.log",
+		"consoleLevel" : "silly",
+		"loggerLevel" : "silly",
+		"maxSize" : 10000000, //10 MB
+		"maxFiles" : 10
+	}
+}
