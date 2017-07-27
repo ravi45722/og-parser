@@ -57,6 +57,13 @@ exports.opParser = function (req, res, next){
 
 						if (name === 'description')
 							metaData.description = content.substring(0, 69)
+						
+						if (name === 'image') {
+							if (!metaData.images)
+								metaData.images = [content]
+							else if (Array.isArray(metaData.images))
+								metaData.images.push(content)
+						}
 					}
 				}
 			})
