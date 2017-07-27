@@ -7,7 +7,7 @@ exports.opParser = function (req, res, next){
 		logger.error("URL is not defined");
 		res.send("URL is a mandatory parameter");
 	}
-	
+	//Get the html for the URL
 	request(req.body.url, function (err, response, body) {
 		var metaData = {}
 		var ogData = {}
@@ -16,12 +16,11 @@ exports.opParser = function (req, res, next){
 			logger.error('error:', err); // Print the error if one occurred
 			res.status(500).send("Error while geting the URL response"); 
 		} else {
-			var $ = cheer.load(body)
-			var meta = $('meta') || {}
+			var $ = cheer.load(body)     //Parse the xml tags
+			var meta = $('meta') || {}   //Grep the meta data
 			var keys = Object.keys(meta)
 			
 			keys.forEach(function (key) {
-
 				if (meta[key].attribs && meta[key].attribs.property && meta[key].attribs.content) {
 					//Parsing the OG parameters
 					var property = meta[key].attribs.property,
